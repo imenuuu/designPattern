@@ -1,27 +1,19 @@
 package Chapter10;
-/*
+
 public class HyundaiMotor extends Motor{
-    public HyundaiMotor(Door door) { super(door); }
-    private void moveHyundaiMotor(Direction direction) {
-        // Hyundai Motor를 구동시킴
+
+    public HyundaiMotor(Door door) {
+        super(door);
+        door.open();
     }
-    public void move(Direction direction) {
-        MotorStatus status = getMotorStatus();
 
-        if(getMotorStatus() == MotorStatus.MOVING) {
-            return;
-        }
-
-        DoorStatus doorStatus = door.getDoorStatus();
-
-        if(doorStatus == DoorStatus.OPENED) {
-            door.close();
-        }
-
-        moveHyundaiMotor(direction);
-        setMotorStatus(MotorStatus.MOVING);
+    // 현대 모터에 맞게 구동 메서드 오버라이드
+    @Override
+    protected void moveMotor(Direction direction) {
+        // 현대 모터 구동
+        System.out.println("현대 모터 구동 방향 : " + direction);
     }
+
 }
 
 
- */
