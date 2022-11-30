@@ -1,4 +1,4 @@
-package Chapter10;
+package Chapter11;
 
 public enum DoorStatus {
     CLOSED,OPENED

@@ -1,4 +1,4 @@
-package Chapter10;
+package Chapter11;
 
 public class Door {
     private DoorStatus doorStatus;

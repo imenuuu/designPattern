@@ -1,4 +1,4 @@
-package Chapter10;
+package Chapter11;
 
 public class LGMotor extends Motor{
     public LGMotor(Door door) {

@@ -3,6 +3,7 @@ package Chpater12;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 public class ElevatorManager {
     private List<ElevatorController> controllers;
     private ThroughtputScheduler scheduler;
@@ -20,3 +21,6 @@ public class ElevatorManager {
         int selectedElevator = scheduler.selectedElevator(this, destination, direction);
     }
 }
+
+
+ */
