@@ -1,42 +1,47 @@
 package Chapter10;
 
-/*
-public abstract class Motor {
-    protected Door door;
-    private MotorStatus motorStatus;
 
+public abstract class Motor {
+    private Door door;                  // 문
+    private MotorStatus motorStatus;    // 모터 상태 변수
+
+    // 생성자
     public Motor(Door door) {
         this.door = door;
-        motorStatus=MotorStatus.STOPPED;
+        this.motorStatus = MotorStatus.STOPPED;
     }
 
     public MotorStatus getMotorStatus() {
         return motorStatus;
     }
 
-    protected void setMotorStatus(MotorStatus motorStatus) {
-        this.motorStatus=motorStatus;
+    public void setMotorStatus(MotorStatus motorStatus) {
+        this.motorStatus = motorStatus;
     }
-    public void move(Direction direction) {
-        MotorStatus status = getMotorStatus();
 
-        if(getMotorStatus() == MotorStatus.MOVING) {
+    // 모터 구동 메서드
+    public void move(Direction direction) {
+
+        MotorStatus motorStatus = getMotorStatus();
+
+        if (motorStatus == MotorStatus.MOVING) {
             return;
         }
 
         DoorStatus doorStatus = door.getDoorStatus();
 
-        if(doorStatus == DoorStatus.OPENED) {
+        if (doorStatus == DoorStatus.OPENED) {
             door.close();
+            System.out.println("문 닫음");
         }
 
         moveMotor(direction);
         setMotorStatus(MotorStatus.MOVING);
+
     }
 
-    // 훅 메서드
+    // 각각의 회사 모터에 따라 오버라이드 할 추상 메서드
     protected abstract void moveMotor(Direction direction);
 }
 
-)
- */
+

@@ -9,8 +9,13 @@ public class Main {
         ComputerOffCommand computerOffCmd = new ComputerOffCommand(computer);
 
         Button btn = new Button(computerOnCmd);	//버튼이 인보커 역할
+        System.out.println(1);
         btn.pressButton();
         btn.setCommand(computerOffCmd);
+        btn.pressButton();
+        btn.setCommand(computerOnCmd);
+        System.out.println(2);
+        btn.pressButton();
         btn.pressButton();
     }
 }
