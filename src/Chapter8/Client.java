@@ -1,7 +1,7 @@
 package Chapter8;
 
 interface Command{
-    abstract public void execute();
+    public abstract void execute();
 }
 class Button {
     private Command theCommand;
@@ -30,7 +30,10 @@ class LampOnCommand implements Command { // 램프를켜는기능의캡슐화
         this.theLamp= theLamp;
     }
 
-    public void execute() { theLamp.turnOn() ; }}
+    public void execute(){
+        theLamp.turnOn() ;
+    }
+}
 class Alarm {
     public void start() {
         System.out.println("Alarming...") ;}
@@ -45,6 +48,21 @@ class AlarmOnCommand implements Command { // 알람을울리는기능의캡슐
         theAlarm.start() ;
     }}
 
+class Stopwatch {
+    public void start(){
+        System.out.println("start.....");
+}}
+
+class StopwatchOnCommand implements Command {
+    private Stopwatch stopwatch;
+    public StopwatchOnCommand(Stopwatch stopwatch) {
+        this.stopwatch= stopwatch;
+    }
+    @Override
+    public void execute() {
+        stopwatch.start();
+    }
+}
 public class Client {
     public static void main(String[] args) {
         Lamp lamp= new Lamp() ;
@@ -53,9 +71,16 @@ public class Client {
         button1.pressed() ;
 
 
-        Alarm alarm= new Alarm() ;Command alarmOnCommand= new AlarmOnCommand(alarm) ; // 알람을울리는기능을설정함
+        Alarm alarm= new Alarm() ;
+        Command alarmOnCommand= new AlarmOnCommand(alarm) ; // 알람을울리는기능을설정함
         Button button2 = new Button(alarmOnCommand);
         button2.pressed() ;
-        button2.setCommand(lampOnCommand); // 램프를켜는기능으로변경button2.pressed()
+        button2.setCommand(lampOnCommand); // 램프를켜는기능으로변경
+        button2.pressed();
+
+        Stopwatch stopwatch = new Stopwatch();
+        Command stopwatchOnCommand = new StopwatchOnCommand(stopwatch);
+        Button stopwatchButton=new Button(stopwatchOnCommand);
+        stopwatchButton.pressed();
     }
 }

@@ -12,13 +12,13 @@ class ON implements State{
     }
     @Override
     public void on_button_pushed(Light light) {
-        System.out.println("취침등 상태");
+        System.out.println("ON 메서드 취침등 상태");
         light.setState(SLEEPING.getInstance());
     }
 
     @Override
     public void off_button_pushed(Light light) {
-        System.out.println("Light Off !");
+        System.out.println("ON 메서드 Light Off !");
         light.setState(OFF.getInstance());
     }
 
@@ -27,18 +27,20 @@ class ON implements State{
 class OFF implements State{
 
     private static State instance =new OFF();
+
     public static State getInstance(){
         return instance;
     }
+
     @Override
     public void on_button_pushed(Light light) {
-        System.out.println("Light ON !");
+        System.out.println("OFF 메서드 Light ON !");
         light.setState(ON.getInstance());
     }
 
     @Override
     public void off_button_pushed(Light light) {
-        System.out.println("반응 없음");
+        System.out.println("OFF 메서드 반응 없음");
     }
 
 }
@@ -51,18 +53,18 @@ class SLEEPING implements State{
 
     @Override
     public void on_button_pushed(Light light){
-        System.out.println("LIGHT ON BACK!!");
+        System.out.println("SLEEPING 메서드 LIGHT ON BACK!!");
         light.setState(ON.getInstance());
     }
 
     @Override
     public void off_button_pushed(Light light) {
-        System.out.println("LIGHT OFF BACK!!");
+        System.out.println("SLEEPING 메서드 LIGHT OFF BACK!!");
         light.setState(OFF.getInstance());
     }
 }
 class Light{
-    private State state=OFF.getInstance();
+    private State state=SLEEPING.getInstance();
 
     public void setState(State state){
         this.state=state;
@@ -85,7 +87,5 @@ public class Client {
         light.off_button_pushed();
         light.on_button_pushed();
         light.on_button_pushed();
-
-
     }
 }
