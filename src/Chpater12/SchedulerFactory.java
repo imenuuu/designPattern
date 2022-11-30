@@ -7,8 +7,14 @@ public class SchedulerFactory {
         switch(strategyID) {
             case RESPONSE_TIME:
                 scheduler=new ResponseTimeScheduler();
+                break;
+            case THROUGHPUT:
+                scheduler=new ThroughtputScheduler();
         }
+
     }
 }
 
  */
+
+

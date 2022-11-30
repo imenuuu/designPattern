@@ -9,6 +9,7 @@ public abstract class Motor {
     public Motor(Door door) {
         this.door = door;
         this.motorStatus = MotorStatus.STOPPED;
+        System.out.println("Motor 생성자");
     }
 
     public MotorStatus getMotorStatus() {
